@@ -1,0 +1,7 @@
+:root{
+    --bgr-color: #eeeeee;
+    --border-style: 1px solid rgb(255, 255, 255);
+}
+body{
+    background-color: var(--bgr-color);
+}

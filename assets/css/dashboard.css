@@ -1,0 +1,154 @@
+.table{
+    text-align: center;
+    font-size: 14px;
+}
+.head{
+    width: 100%;
+    height: 150px;
+    background-color:rgb(255, 197, 197);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    font-size: 3vw;
+    margin-bottom: 20px;
+}
+.head a{
+    color: black;
+    text-decoration: none;
+}
+.item-input{
+        width: 100%;
+        border: 1px solid #ccc;
+        overflow: hidden ;
+        text-align: center;
+        word-wrap: break-word;
+        border: none;
+        display: block;
+        white-space: pre-wrap;
+        word-break: break-word;
+        resize: none;
+        min-height: 10px;
+}
+@media (max-width: 800px){
+    .table{
+        font-size: 10px;
+    }
+}
+.input-img{
+    display: none;
+}
+.label-img{
+    height: 70px;
+    width: 70px;
+}
+.label-img:hover{
+    cursor: pointer;
+}
+.preview-img{
+    height: 100%;
+    width: 100%;
+}
+.insert-btn{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.insert-button{
+    width: 100px;
+}
+.modal{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.form-post{
+    width: 400px;
+    height: 560px;
+    background-color:gainsboro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 2px solid cadetblue;
+    border-radius: 8px;
+}
+.form-post>input{
+    width: 80%;
+    height: 27px;
+}
+
+.form-restaurant{
+    width: 400px;
+    height: 210px;
+    background-color:gainsboro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 2px solid cadetblue;
+    border-radius: 8px;
+}
+.form-restaurant>input{
+    width: 80%;
+    height: 27px;
+}
+
+.box-check{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+}
+.box-check>span{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+#img-insert{
+    display: none;
+}
+#label-insert{
+    width: 80%;
+    height: 200px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#label-insert:hover{
+    cursor: pointer;
+    font-size: 20px;
+}
+.page-nav{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    overflow-x: auto;
+    margin-bottom: 50px;
+}
+.next-page{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
