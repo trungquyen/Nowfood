@@ -57,7 +57,12 @@
                 </span>
                 <span class="notify">
                     <?php
-                    echo $_GET['Notification'];
+                    if(!isset($_GET['Notification'])){
+                        $Noti = '';
+                    }else{
+                        $Noti = $_GET['Notification'];
+                    }
+                    echo $Noti;
                     ?>
                 </span>
                 <div class="footer-form">

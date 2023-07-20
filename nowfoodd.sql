@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 19, 2023 lúc 06:42 AM
+-- Thời gian đã tạo: Th5 24, 2023 lúc 02:54 PM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 7.3.33
 
@@ -45,6 +45,19 @@ INSERT INTO `admin` (`ID`, `taikhoan`, `matkhau`, `hoten`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `chat`
+--
+
+CREATE TABLE `chat` (
+  `id` int(10) NOT NULL,
+  `id_send` int(10) NOT NULL,
+  `id_rec` int(10) NOT NULL,
+  `messg` varchar(225) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `ctdonhang`
 --
 
@@ -79,7 +92,8 @@ CREATE TABLE `donhang` (
 
 INSERT INTO `donhang` (`id_dh`, `ten_ngd`, `ngaydat`, `diachi`, `sdt`, `tongtien`, `id_nd`, `id_nhahag`) VALUES
 (1, 'vũ', '2023-04-13', 'dfgdsg', '4578658', '40000', 11, 1),
-(2, 'hải', '2023-04-13', 'sdfsdf', '546486', '141000', 11, 1);
+(2, 'hải', '2023-04-13', 'sdfsdf', '546486', '141000', 11, 1),
+(3, 'Vũ Trung Quyền', '2023-04-13', '62 Thanh Trì', '033778866', '140000', 14, 1);
 
 -- --------------------------------------------------------
 
@@ -93,21 +107,21 @@ CREATE TABLE `monan` (
   `ten_monan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `gia` varchar(225) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mota` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `duyet` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `monan`
 --
 
-INSERT INTO `monan` (`id_monan`, `id_nh`, `ten_monan`, `gia`, `mota`, `img`) VALUES
-(10, 1, 'Bún Đậu Mắm Tôm', '30000', 'Bún Đậu Mẹt', '3.jpg'),
-(11, 1, 'Bún Bò Huế', '40000', 'Bún Bò Huế - Một món ăn Đặc Sản Việt Nam', '6.jpg'),
-(14, 1, 'Cơn Sườn Nướng', '47000', 'Cơm Sườn Nướng ', '8.jpg'),
-(16, 1, 'Viên Phô Mai', '40000', '', '7.jpg'),
-(17, 1, 'Phở Bò', '35000', 'Tái chín , Sốt vang', '6.jpg'),
-(18, 1, 'Pizza', '120000', 'Pizza Hải Sản', '2.jpg'),
-(19, 1, 'Trà Sữa royal tea', '40000', 'Trà Sữa', '4.jpg');
+INSERT INTO `monan` (`id_monan`, `id_nh`, `ten_monan`, `gia`, `mota`, `img`, `duyet`) VALUES
+(10, 1, 'Mì trộn Indomi', '35000', 'Mì trộn Indomi', '3.jpg', 1),
+(19, 1, 'Trà Sữa Royal tea', '35000', 'Trà Sữa Ngon', '4.jpg', 1),
+(27, 1, 'Bún Bò Huế', '40000', 'Bún Bò Huế', '10.jpg', 1),
+(28, 1, 'Viên Phô Mai', '20000', 'Viên Phô Mai', '7.jpg', 1),
+(29, 1, 'Pizza Phô Mai', '35000', 'Pizza Phô Mai Ngon', '2.jpg', 0),
+(30, 1, 'Bún Đậu Mắm Tôm', '35000', 'Bún Đậu Mắm Tôm', '9.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -149,7 +163,7 @@ CREATE TABLE `tt_nhahang` (
 --
 
 INSERT INTO `tt_nhahang` (`id_nhahg`, `ten_nhahg`, `sdt`, `email`, `diachi`, `chu_nhahg`) VALUES
-(1, 'Cơm sườn nướng', '45646', 'vtq@gmail.com', '63 Tan triều', 'quyen');
+(1, 'Cơm sườn nướng', '0996013030', 'vtq@gmail.com', '63 Tan triều', 'quyen');
 
 -- --------------------------------------------------------
 
@@ -185,9 +199,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `gmail`, `password`, `status`, `code`, `phonenumber`) VALUES
-(9, 'vtquyen2k1@gmail.com', '$2y$10$LKvDFW3SjKbjVahNePym0.y4/LUSTXQyttmpJA99adEzXR3d3L9H2', 1, '212', NULL),
 (10, 'koykk2011@gmail.com', '$2y$10$/EfVesxtHBfaFdlBkziw/uz1gd5ErplQptaY3PKxKS4j.69LWsXU6', 0, '360', NULL),
-(11, 'vutrungkhoang@gmail.com', '$2y$10$jrowyHkV2xXWvuh3rbkiZuzBGHX9bbv16W9D5HSTCrN86nX19be22', 1, '940', NULL);
+(11, 'vutrungkhoang@gmail.com', '$2y$10$97y6Ymg6S9P4N1MWIsPZWez5fh8ZvFSnGHGxMk8xfJHmbDUcQSYO.', 1, '940', NULL),
+(14, 'vtquyen2k1@gmail.com', '$2y$10$Q3vDG6t2OgNTOocqpmFIV.9Qi4NG1NhmcMg8YC0nT/4aV.PkED6yS', 1, '758', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -198,6 +212,12 @@ INSERT INTO `user` (`id`, `gmail`, `password`, `status`, `code`, `phonenumber`) 
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- Chỉ mục cho bảng `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `ctdonhang`
@@ -256,16 +276,22 @@ ALTER TABLE `admin`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT cho bảng `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `donhang`
 --
 ALTER TABLE `donhang`
-  MODIFY `id_dh` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_dh` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `monan`
 --
 ALTER TABLE `monan`
-  MODIFY `id_monan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_monan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT cho bảng `tk_nhahang`
@@ -277,7 +303,7 @@ ALTER TABLE `tk_nhahang`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

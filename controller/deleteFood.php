@@ -8,7 +8,8 @@ if (!isset($_SESSION['signinRestaurant'])) {
     if(isset($_GET['id_monan'])){
         $id_monan = $_GET['id_monan'];
         if(deletefood($id_monan)){
-            header('Location: ../restaurant/food.php');
+            $Notification="Xoá món ăn thành công.";
+            header("Location: ../restaurant/food.php?Notification=$Notification");
         }
         else{
             echo 'loi xoa food';
